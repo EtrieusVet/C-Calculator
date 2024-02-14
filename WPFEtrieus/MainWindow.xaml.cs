@@ -20,7 +20,7 @@ namespace WPFEtrieus
     /// </summary>
     public partial class MainWindow : Window
     {
-        long variableA;
+        long variableA; 
         long variableB;
         long result;
         string numOperator;
@@ -28,6 +28,31 @@ namespace WPFEtrieus
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Calculation()
+        {
+            variableB = Convert.ToInt64(label_value.Content);
+            switch (numOperator)
+            {
+                case "addition":
+                    result = variableA + variableB;
+                    break;
+
+                case "subtraction":
+                    result = variableA - variableB;
+                    break;
+
+                case "multiplication":
+                    result = variableA * variableB;
+                    break;
+
+                case "division":
+                    result = variableA / variableB;
+                    break;
+            }
+            label_value.Content = "";
+            label_value.Content += Convert.ToString(result);
         }
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -85,18 +110,21 @@ namespace WPFEtrieus
                     break;
 
                 case Key.Add:
+                case Key.OemPlus:
                     variableA = Convert.ToInt64(label_value.Content);
                     label_value.Content = "";
                     numOperator = "addition";
                     break;
 
                 case Key.Subtract:
+                case Key.OemMinus:
                     variableA = Convert.ToInt64(label_value.Content);
                     label_value.Content = "";
                     numOperator = "subtraction";
                     break;
 
                 case Key.Multiply:
+
                     variableA = Convert.ToInt64(label_value.Content);
                     label_value.Content = "";
                     numOperator = "multiplication";
@@ -113,27 +141,7 @@ namespace WPFEtrieus
                     break;
 
                 case Key.Enter:
-                    variableB = Convert.ToInt64(label_value.Content);
-                    switch (numOperator)
-                    {
-                        case "addition":
-                            result = variableA + variableB;
-                            break;
-
-                        case "subtraction":
-                            result = variableA - variableB;
-                            break;
-
-                        case "multiplication":
-                            result = variableA * variableB;
-                            break;
-
-                        case "division":
-                            result = variableA / variableB;
-                            break;
-                    }
-                    label_value.Content = "";
-                    label_value.Content += Convert.ToString(result);
+                    Calculation();
                     break;
             }
             
@@ -200,27 +208,7 @@ namespace WPFEtrieus
 
         private void equals_Click(object sender, RoutedEventArgs e)
         {
-            variableB = Convert.ToInt64(label_value.Content);
-            switch (numOperator)
-            {
-                case "addition":
-                    result = variableA + variableB;
-                    break;
-
-                case "subtraction":
-                    result = variableA - variableB;
-                    break;
-
-                case "multiplication":
-                    result = variableA * variableB;
-                    break;
-
-                case "division":
-                    result = variableA / variableB;
-                    break;
-            }
-            label_value.Content = "";
-            label_value.Content += Convert.ToString(result);
+            Calculation();
         }
 
         private void addition_Click(object sender, RoutedEventArgs e)
