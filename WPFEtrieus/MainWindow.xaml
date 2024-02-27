@@ -14,7 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label_value" Margin="10,10,9.8,0" Background="#FFE1F1FD" BorderBrush="#FF4663AC" BorderThickness="2" Grid.RowSpan="2" Height="69" VerticalAlignment="Top" />
+        <Label x:Name="result_container" Margin="10,10,9.8,0" Background="#FFE1F1FD" BorderBrush="#FF4663AC" BorderThickness="2" Grid.RowSpan="2" Height="69" VerticalAlignment="Top" />
 
         <StackPanel Margin="0" Grid.Row="1" Orientation="Horizontal">
             <WrapPanel Width="247" Margin="0,31,0,0.2">
