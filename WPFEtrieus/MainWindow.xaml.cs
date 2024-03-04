@@ -22,6 +22,7 @@ namespace WPFEtrieus
     {
         long variableA; 
         long variableB;
+
         long result;
         string numOperator;
 
@@ -35,25 +36,72 @@ namespace WPFEtrieus
             variableB = Convert.ToInt64(userInputContainer.Content);
             switch (numOperator)
             {
-                case "addition":
+                case "addition":                 
                     result = variableA + variableB;
+                    variableA = result;
                     break;
 
                 case "subtraction":
                     result = variableA - variableB;
+                    variableA = result;
                     break;
 
                 case "multiplication":
                     result = variableA * variableB;
+                    variableA = result;
                     break;
 
                 case "division":
                     result = variableA / variableB;
+                    variableA = result;
                     break;
             }
             userInputContainer.Content = "";
             resultContainer.Content = "";
             resultContainer.Content += Convert.ToString(result);
+        }
+
+        private void KeyPressAddition()
+        {
+            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            {
+                variableA = Convert.ToInt64(userInputContainer.Content);
+            }
+            userInputContainer.Content = "";
+            displayContainer.Content = $"{variableA} +";
+            numOperator = "addition";
+        }
+        private void KeyPressSubtraction()
+        {
+            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            {
+                variableA = Convert.ToInt64(userInputContainer.Content);
+            }
+            userInputContainer.Content = "";
+            displayContainer.Content = "-";
+            numOperator = "subtraction";
+        }
+
+        private void KeyPressMultiplication()
+        {
+            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            {
+                variableA = Convert.ToInt64(userInputContainer.Content);
+            }
+            userInputContainer.Content = "";
+            displayContainer.Content = "*";
+            numOperator = "multiplication";
+        }
+
+        private void KeyPressDivision()
+        {
+            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            {
+                variableA = Convert.ToInt64(userInputContainer.Content);
+            }
+            userInputContainer.Content = "";
+            displayContainer.Content = "/";
+            numOperator = "division";
         }
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -112,29 +160,20 @@ namespace WPFEtrieus
 
                 case Key.Add:
                 case Key.OemPlus:
-                    variableA = Convert.ToInt64(userInputContainer.Content);
-                    userInputContainer.Content = "";
-                    numOperator = "addition";
+                    KeyPressAddition();
                     break;
 
                 case Key.Subtract:
                 case Key.OemMinus:
-                    variableA = Convert.ToInt64(userInputContainer.Content);
-                    userInputContainer.Content = "";
-                    numOperator = "subtraction";
+                    KeyPressSubtraction();
                     break;
 
                 case Key.Multiply:
-
-                    variableA = Convert.ToInt64(userInputContainer.Content);
-                    userInputContainer.Content = "";
-                    numOperator = "multiplication";
+                    KeyPressMultiplication();
                     break;
 
                 case Key.Divide:
-                    variableA = Convert.ToInt64(userInputContainer.Content);
-                    userInputContainer.Content = "";
-                    numOperator = "division";
+                    KeyPressDivision();
                     break;
 
                 case Key.Back:
@@ -214,29 +253,21 @@ namespace WPFEtrieus
 
         private void addition_Click(object sender, RoutedEventArgs e)
         {
-            variableA = Convert.ToInt64(userInputContainer.Content);
-            userInputContainer.Content = "";
-            numOperator = "addition";
+            KeyPressAddition();
         }
         private void subtraction_Click(object sender, RoutedEventArgs e)
         {
-            variableA = Convert.ToInt64(userInputContainer.Content);
-            userInputContainer.Content = "";
-            numOperator = "subtraction";
+            KeyPressSubtraction();
         }
 
         private void multiplication_Click(object sender, RoutedEventArgs e)
         {
-            variableA = Convert.ToInt64(userInputContainer.Content);
-            userInputContainer.Content = "";
-            numOperator = "multiplication";
+            KeyPressMultiplication();
         }
 
         private void division_Click(object sender, RoutedEventArgs e)
         {
-            variableA = Convert.ToInt64(userInputContainer.Content);
-            userInputContainer.Content = "";
-            numOperator = "division";
+            KeyPressDivision();
         }
     }
 }

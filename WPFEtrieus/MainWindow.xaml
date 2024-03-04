@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFEtrieus"
         mc:Ignorable="d"
-        Title="Calculator" Height="339.6" Width="341.4" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown">
+        Title="Calculator" Height="411" Width="341.4" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid Margin="0" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
             <RowDefinition Height="58*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="34*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="resultContainer" Content="" Margin="0,0,12,12" Background="#FFB48686" HorizontalAlignment="Right" Width="184" VerticalAlignment="Bottom" HorizontalContentAlignment="Right"/>
-        <Label x:Name="userInputContainer" Margin="10,10,9,6" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrush}}" BorderBrush="#FF4663AC" BorderThickness="2" Height="69" VerticalAlignment="Stretch" />
+        <Label x:Name="resultContainer" Content="" Margin="0,67,18,0" Background="{x:Null}" HorizontalAlignment="Right" Width="301" VerticalAlignment="Top" HorizontalContentAlignment="Right" Grid.ColumnSpan="3" Height="88" Grid.RowSpan="2"/>
+        <Label x:Name="userInputContainer" Margin="10,10,9,235" Background="{x:Null}" BorderBrush="#FF4663AC" BorderThickness="2" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalContentAlignment="Right" FontSize="30" FontFamily="Cascadia Code SemiBold" Grid.RowSpan="2" FontStretch="Expanded" />
+        <Label x:Name="displayContainer" Content="" Margin="10,0,0,32" Background="{x:Null}" HorizontalAlignment="Right" Width="319" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" Grid.ColumnSpan="3"/>
 
-        <StackPanel x:Name="Display" Grid.Row="1" Orientation="Horizontal">
-            <WrapPanel Width="247">
+        <StackPanel x:Name="Display" Orientation="Horizontal" Grid.ColumnSpan="3" Margin="0,48,0,0" Grid.Row="1">
+            <WrapPanel Width="247" Height="223">
                 <Button x:Name="seven" Content="7" Width="75" Margin="3,2,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Background="#FFD2DEEB" Click="seven_Click"/>
                 <Button x:Name="eight" Content="8" Width="75" Margin="0,2,5,0" Height="50" Background="#FFD2DEEB" Click="eight_Click"/>
                 <Button x:Name="nine" Content="9" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="nine_Click"/>
@@ -32,7 +35,7 @@
                 <Button x:Name="zero" Content="0" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="zero_Click"/>
                 <Button x:Name="equals" Content="=" Width="75" Margin="0,3,5,0" Height="50" Click="equals_Click"/>
             </WrapPanel>
-            <WrapPanel Width="81">
+            <WrapPanel Width="81" Height="221">
                 <Button x:Name="addition" Content="+" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="addition_Click"/>
                 <Button x:Name="subtraction" Content="-" Width="75" Margin="0,3,0,0" Background="#FFD2DEEB" Height="50" Click="subtraction_Click"/>
                 <Button x:Name="multiplication" Content="*" Width="75" Height="50" Margin="0,3,0,0" Background="#FFD2DEEB" Click="multiplication_Click"/>
