@@ -8,38 +8,37 @@
         Title="Calculator" Height="411" Width="341.4" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid Margin="0" Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="58*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="137*"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="resultContainer" Content="" Margin="0,67,18,0" Background="{x:Null}" HorizontalAlignment="Right" Width="301" VerticalAlignment="Top" HorizontalContentAlignment="Right" Grid.ColumnSpan="3" Height="88" Grid.RowSpan="2"/>
-        <Label x:Name="userInputContainer" Margin="10,10,9,235" Background="{x:Null}" BorderBrush="#FF4663AC" BorderThickness="2" Grid.ColumnSpan="3" FontWeight="Bold" HorizontalContentAlignment="Right" FontSize="30" FontFamily="Cascadia Code SemiBold" Grid.RowSpan="2" FontStretch="Expanded" />
-        <Label x:Name="displayContainer" Content="" Margin="10,0,0,32" Background="{x:Null}" HorizontalAlignment="Right" Width="319" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" Grid.ColumnSpan="3"/>
+        <Label x:Name="resultContainer" Content="" Margin="0,85,0,0" Background="{x:Null}" HorizontalAlignment="Center" Width="299" VerticalAlignment="Top" HorizontalContentAlignment="Right" Height="70" FontSize="35" FontFamily="Cascadia Code"/>
+        <Label x:Name="userInputContainer" Margin="10,10,9,235" Background="{x:Null}" BorderBrush="#FF4663AC" BorderThickness="2" FontWeight="Bold" HorizontalContentAlignment="Right" FontSize="30" FontFamily="Cascadia Code SemiBold" FontStretch="Expanded" />
+        <Label x:Name="displayContainer" Content="" Margin="0,0,30,306" Background="{x:Null}" HorizontalAlignment="Right" Width="301" VerticalAlignment="Bottom" HorizontalContentAlignment="Right" FontSize="20" FontFamily="Cascadia Code" Height="33"/>
 
-        <StackPanel x:Name="Display" Orientation="Horizontal" Grid.ColumnSpan="3" Margin="0,48,0,0" Grid.Row="1">
-            <WrapPanel Width="247" Height="223">
-                <Button x:Name="seven" Content="7" Width="75" Margin="3,2,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Background="#FFD2DEEB" Click="seven_Click"/>
-                <Button x:Name="eight" Content="8" Width="75" Margin="0,2,5,0" Height="50" Background="#FFD2DEEB" Click="eight_Click"/>
-                <Button x:Name="nine" Content="9" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="nine_Click"/>
-                <Button x:Name="four" Content="4" Width="75" Margin="3,3,5,0" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD2DEEB" Click="four_Click"/>
-                <Button x:Name="five" Content="5" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="five_Click"/>
-                <Button x:Name="six" Content="6" Width="75" Margin="0,3,0,0" Background="#FFD2DEEB" Click="six_Click" Height="50"/>
-                <Button x:Name="one" Content="1" Width="75" Height="50" Margin="3,3,5,0" Background="#FFD2DEEB" Click="one_Click"/>
-                <Button x:Name="two" Content="2" Width="75" Height="50" Margin="0,3,5,0" Background="#FFD2DEEB" Click="two_Click"/>
-                <Button x:Name="t" Content="3" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="three_Click"/>
-                <Button x:Name="clear" Content="Clear" Width="75" Height="50" Margin="3,3,5,0" Background="#FFD2DEEB" Click="clear_Click"/>
-                <Button x:Name="zero" Content="0" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="zero_Click"/>
-                <Button x:Name="equals" Content="=" Width="75" Margin="0,3,5,0" Height="50" Click="equals_Click"/>
+        <StackPanel x:Name="Display" Orientation="Horizontal" Margin="0,160,0,0">
+            <WrapPanel Width="252" Height="223">
+                <Button x:Name="seven" Content="7" Width="75" Margin="3,2,5,0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="50" Background="#FFD2DEEB" Click="seven_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="eight" Content="8" Width="75" Margin="0,2,5,0" Height="50" Background="#FFD2DEEB" Click="eight_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="nine" Content="9" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="nine_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="four" Content="4" Width="75" Margin="3,3,5,0" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFD2DEEB" Click="four_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="five" Content="5" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="five_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="six" Content="6" Width="75" Margin="0,3,0,0" Background="#FFD2DEEB" Click="six_Click" Height="50" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="one" Content="1" Width="75" Height="50" Margin="3,3,5,0" Background="#FFD2DEEB" Click="one_Click" FontSize="20" FontFamily="Consolas"/>
+                <Button x:Name="two" Content="2" Width="75" Height="50" Margin="0,3,5,0" Background="#FFD2DEEB" Click="two_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="t" Content="3" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="three_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="clear" Content="Clear" Width="75" Height="50" Margin="3,3,5,0" Background="#FFD2DEEB" Click="clear_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="zero" Content="0" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="zero_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="equals" Content="=" Width="36" Margin="0,3,0,0" Height="50" Click="equals_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="decimal" Content="." Width="36" Margin="4,3,0,0" Height="50" Click="decimals_Click"/>
+
             </WrapPanel>
             <WrapPanel Width="81" Height="221">
-                <Button x:Name="addition" Content="+" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="addition_Click"/>
-                <Button x:Name="subtraction" Content="-" Width="75" Margin="0,3,0,0" Background="#FFD2DEEB" Height="50" Click="subtraction_Click"/>
-                <Button x:Name="multiplication" Content="*" Width="75" Height="50" Margin="0,3,0,0" Background="#FFD2DEEB" Click="multiplication_Click"/>
-                <Button x:Name="division" Content="/" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="division_Click"/>
+                <Button x:Name="addition" Content="+" Width="75" Margin="0,2,0,0" Height="50" Background="#FFD2DEEB" Click="addition_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="subtraction" Content="-" Width="75" Margin="0,3,0,0" Background="#FFD2DEEB" Height="50" Click="subtraction_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="multiplication" Content="*" Width="75" Height="50" Margin="0,3,0,0" Background="#FFD2DEEB" Click="multiplication_Click" FontFamily="Consolas" FontSize="20"/>
+                <Button x:Name="division" Content="/" Width="75" Margin="0,3,5,0" Height="50" Background="#FFD2DEEB" Click="division_Click" FontFamily="Consolas" FontSize="20"/>
             </WrapPanel>
 
         </StackPanel>
