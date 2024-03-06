@@ -33,26 +33,30 @@ namespace WPFEtrieus
 
         private void Calculation()
         {
-            variableB = Convert.ToDecimal(userInputContainer.Content);
+            variableB = (float)Convert.ToDecimal(userInputContainer.Content);
             switch (numOperator)
             {
                 case "addition":
                     result = variableA + variableB;
+                    displayContainer.Content = $"{variableA} + {variableB} =";
                     variableA = result;
                     break;
 
                 case "subtraction":
                     result = variableA - variableB;
+                    displayContainer.Content = $"{variableA} - {variableB} =";
                     variableA = result;
                     break;
 
                 case "multiplication":
                     result = variableA * variableB;
+                    displayContainer.Content = $"{variableA} * {variableB}  =";
                     variableA = result;
                     break;
 
                 case "division":
                     result = variableA / variableB;
+                    displayContainer.Content = $"{variableA} / {variableB} =";
                     variableA = result;
                     break;
             }
@@ -60,14 +64,22 @@ namespace WPFEtrieus
             resultContainer.Content = "";
             resultContainer.Content += Convert.ToString(result);
         }
-
+        private void Clear()
+        {
+            userInputContainer.Content = "";
+            displayContainer.Content = "";
+            resultContainer.Content = "";
+        }
         private bool DecimalChecker()
         {
             
             if (userInputContainer.Content != null)
             {
-                return userInputContainer.Content.ToString().Contains(".");
-               
+                return userInputContainer.Content.ToString().Contains(".");  
+            }
+            else
+            {
+                userInputContainer.Content += "0";
             }
             return false;
         }
@@ -75,7 +87,7 @@ namespace WPFEtrieus
         {
             if (Convert.ToDecimal(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
             {
-                variableA = Convert.ToInt64(userInputContainer.Content);
+                variableA = (float)Convert.ToDecimal(userInputContainer.Content);
             }
             userInputContainer.Content = "";
             displayContainer.Content = $"{variableA} +";
@@ -83,9 +95,9 @@ namespace WPFEtrieus
         }
         private void KeyPressSubtraction()
         {
-            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            if (Convert.ToDecimal(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
             {
-                variableA = Convert.ToInt64(userInputContainer.Content);
+                variableA = (float)Convert.ToDecimal(userInputContainer.Content);
             }
             userInputContainer.Content = "";
             displayContainer.Content = $"{variableA} -";
@@ -94,9 +106,9 @@ namespace WPFEtrieus
 
         private void KeyPressMultiplication()
         {
-            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            if (Convert.ToDecimal(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
             {
-                variableA = Convert.ToInt64(userInputContainer.Content);
+                variableA = (float)Convert.ToDecimal(userInputContainer.Content);
             }
             userInputContainer.Content = "";
             displayContainer.Content = $"{variableA} *";
@@ -105,9 +117,9 @@ namespace WPFEtrieus
 
         private void KeyPressDivision()
         {
-            if (Convert.ToInt64(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
+            if (Convert.ToDecimal(userInputContainer.Content == "" ? 0 : userInputContainer.Content) != 0)
             {
-                variableA = Convert.ToInt64(userInputContainer.Content);
+                variableA = (float)Convert.ToDecimal(userInputContainer.Content);
             }
             userInputContainer.Content = "";
             displayContainer.Content = $"{variableA} /";
@@ -186,8 +198,19 @@ namespace WPFEtrieus
                     KeyPressDivision();
                     break;
 
+                case Key.OemPeriod:
+                    if (DecimalChecker())
+                    {
+                        e.Handled = true;
+                    }
+                    else
+                    {
+                        userInputContainer.Content += ".";
+                    }
+                    break;
+
                 case Key.Back:
-                    userInputContainer.Content = "";
+                    Clear();
                     break;
 
                 case Key.Enter:
@@ -195,7 +218,7 @@ namespace WPFEtrieus
                     break;
             }
             
-            
+            e.Handled=true;
             //if (e.Key == Key.NumPad7 || e.Key == Key.D7)
             //{
             //    label_value.Content += "7";
@@ -248,9 +271,8 @@ namespace WPFEtrieus
 
         private void clear_Click(object sender, RoutedEventArgs e)
         {
-            userInputContainer.Content = "";
+            Clear();
         }
-
         private void zero_Click(object sender, RoutedEventArgs e)
         {
             userInputContainer.Content += "0";
@@ -289,14 +311,6 @@ namespace WPFEtrieus
         private void division_Click(object sender, RoutedEventArgs e)
         {
             KeyPressDivision();
-        }
-
-        private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (e.Text == ".")
-            {
-
-            }
         }
     }
 }
